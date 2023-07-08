@@ -64,7 +64,7 @@ public class ATM {
             case 3:
                DepositarEnCuenta();
                break;
-               case 4:
+            case 4:
                TransfCuentas();
                break;
             case 5:
@@ -419,22 +419,22 @@ public class ATM {
       System.out.print("Ingrese la Cédula del dueño de la Cuenta a realizar la Transferencia (8 Digitos Numéricos): ");
       String cedulaDestino = getString(); 
       dif=8-cedulaDestino.length();
-      String documDestino="";
+      String documDestino = cedulaDestino;
       for(int i=0; i<dif; i++)
          documDestino="0"+documDestino; //para hacerla de 8 caracteres
       try{
-         user2 = (Usuario) registry.lookup(cedulaDestino); // aqui da error si no existe y va al Catch
+         user2 = (Usuario) registry.lookup(documDestino); // aqui da error si no existe y va al Catch
          System.out.print("Ingrese el Numero de Cuenta a Transferir (8 Digitos Numéricos): ");
          String cuentaDestino = getString(); 
          
          // Buscar si la cuenta existe
          numCuentaDestino = 0; //la primera siempre deberia existir
-         cuentasDestino[1]  = user.getCuenta1();
-         sCuentasDestino[1]  = user.getSCuenta1();
-         cuentasDestino[2]  = user.getCuenta2();
-         sCuentasDestino[2]  = user.getSCuenta2();
-         cuentasDestino[3]  = user.getCuenta3();
-         sCuentasDestino[3]  = user.getSCuenta3();
+         cuentasDestino[1]  = user2.getCuenta1();
+         sCuentasDestino[1]  = user2.getSCuenta1();
+         cuentasDestino[2]  = user2.getCuenta2();
+         sCuentasDestino[2]  = user2.getSCuenta2();
+         cuentasDestino[3]  = user2.getCuenta3();
+         sCuentasDestino[3]  = user2.getSCuenta3();
          for(int i=1; i<=3;i++){
             if(cuentaDestino.compareTo(cuentasDestino[i])==0){
                numCuentaDestino = i;
@@ -472,15 +472,15 @@ public class ATM {
             FuncionesRemotas.CrearOActualizarUsuario(user.getName(), user.getUserName(), docum, user.getPassword(), cuenta[1], sCuenta[1], cuenta[2], sCuenta[2], cuenta[3], sCuenta[3]);
    
             // Actualizar Archivo cuenta
-            FuncionesRemotas.RespaldarMovimiento(docum, cuenta[tecla], -dMontoRetirar); 
+            FuncionesRemotas.RespaldarMovimiento(docum, cuenta[numCuentaDestino], -dMontoRetirar); 
             
             // Actualizar registro del que recibe la transferencia
             sCuentasDestino[numCuentaDestino] = sCuentasDestino[numCuentaDestino] + dMontoRetirar;
-            FuncionesRemotas.CrearOActualizarUsuario(user2.getName(), user2.getUserName(), user2.getDocum(), user2.getPassword(), cuentasDestino[1], sCuentasDestino[1],
+            FuncionesRemotas.CrearOActualizarUsuario(user2.getName(), user2.getUserName(), documDestino, user2.getPassword(), cuentasDestino[1], sCuentasDestino[1],
                 cuentasDestino[2], sCuentasDestino[2], cuentasDestino[3], sCuentasDestino[3]);
    
             // Actualizar Archivo cuenta
-            FuncionesRemotas.RespaldarMovimiento(user2.getDocum(), cuentasDestino[tecla], dMontoRetirar); 
+            FuncionesRemotas.RespaldarMovimiento(documDestino, cuentasDestino[tecla], dMontoRetirar); 
             
             System.out.println("Transaccion Exitosa!. Transferencia Realizada.");   
          }
@@ -592,6 +592,18 @@ public class ATM {
          return c;
    }
 
+   public static String getString() {   // Lee una cadena
+      
+      BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+      String texto = "";
+      try {
+         texto = br1.readLine();
+      } catch (IOException e) {
+          System.out.println("Error al leer el texto: " + e.getMessage());
+      
+      }
+      return texto;
+   }
    
    static void cls(){      //Borra Pantalla Terminal
       System.out.print("\033[H\033[2J");
