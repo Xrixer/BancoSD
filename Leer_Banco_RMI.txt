@@ -16,6 +16,8 @@ En en directorio "Data" se almacenaran todos los datos referente a usuarios y mo
 Procurar salir del programa de manera "normal" mediante la selección "Salir" del menu principal
 para evitar que se corrompan los archivos de texto donde se respaldan los datos.
 
+Las carpetas Servidor, Cliente y Data deben encontrarse en la misma dirección al ejecutar el programa para su correcto funcionamiento.
+
 
 REGLAS GENERALES:
 Los numeros de cuentas son de 8 digitos,
