@@ -1,5 +1,17 @@
+
+ATENCIÓN:
+En Data los archivos Usuarios.txt y los archivos de cuenta (00000001, 00000002, 00000003 y 00000004) ya existen con la función de permitir la realización directa de pruebas de depósito, retiro y transferencia sin necesidad de registro, sin embargo se puede realizar el registo de un nuevo usuario/cuenta.
+
+De ser necesario, también se pueden eliminar todos los archivos de la carpeta Data para empezar de 0 el programa sin usuarios ni cuentas creadas.
+
+El archivo Usuarios.txt guarda la información de los usuarios y sus estados de cuenta en caso de tener, además de servir para guardar al inicio el último número de cuenta creada por fines de optimización.
+
+Bank.java ejecuta automáticamente el inicio del Registry.
+
+
+REGLAS GENERALES:
 Los numeros de cuentas son de 8 digitos,
-La primera cuenta a crear sera la 00000001, luego 00000002 y así.
+La primera cuenta a crear sera la 00000001, luego 00000002 y así, actualmente sin eliminar archivos en Data sigue la cuenta 00000005.
 Los Numeros de Cedula serán de 8 dígitos y sin puntos.
 Cada Usuario (C.I.) podra tener 3 cuentas, a las cuales podrá acceder con un UserName (login) y
 un Password comun para todas las cuentas.
