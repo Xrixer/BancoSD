@@ -8,6 +8,14 @@ El archivo Usuarios.txt guarda la información de los usuarios y sus estados de 
 
 Bank.java ejecuta automáticamente el inicio del Registry.
 
+El directorio de trabajo es "Banco"
+Se debe ejecutar primero el archivo "bank.java" que se encuentra en el directorio "Servidor"
+Luego se debe ejecutar la instancia de "ATM.java" que se encuentra en el directorio "Cliente"
+En en directorio "Data" se almacenaran todos los datos referente a usuarios y movimientos de cuenta.
+
+Procurar salir del programa de manera "normal" mediante la selección "Salir" del menu principal
+para evitar que se corrompan los archivos de texto donde se respaldan los datos.
+
 
 REGLAS GENERALES:
 Los numeros de cuentas son de 8 digitos,
@@ -27,11 +35,3 @@ Monto de la transacción
 Fecha de la Transacción
 La primera línea siempre será el Depósito inicial con la que se abrió la cuenta.
 Luego vendrán las demas transacciones en orden cronológico.
-
-El directorio de trabajo es "Banco"
-Se debe ejecutar primero el archivo "bank.java" que se encuentra en el directorio "Servidor"
-Luego se debe ejecutar la instancia de "ATM.java" que se encuentra en el directorio "Cliente"
-En en directorio "Data" se almacenaran todos los datos referente a usuarios y movimientos de cuenta.
-
-Procurar salir del programa de manera "normal" mediante la selección "Salir" del menu principal
-para evitar que se corrompan los archivos de texto donde se respaldan los datos.
